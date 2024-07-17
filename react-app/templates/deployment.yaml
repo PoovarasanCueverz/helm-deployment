@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-ui
+  name: frontend-test-ui
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: frontend-ui
+      app: frontend-test-ui
   template:
     metadata:
       labels:
-        app: frontend-ui
+        app: frontend-test-ui
     spec:
       containers:
-        - name: frontend-ui
+        - name: frontend-test-ui
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 3000
