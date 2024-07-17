@@ -1,0 +1,21 @@
+image:
+  repository: poovarasan7cueverz/helm-backend
+  tag: "latest"
+
+service:
+  type: NodePort
+  port: 8000
+
+mysql:
+  host: my-mysql.default.svc.cluster.local
+  database: flaskreact
+  user: root
+  password: Team1234#
+
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
