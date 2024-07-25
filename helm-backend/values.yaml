@@ -9,7 +9,7 @@ service:
 mysql:
   host: my-mysql.default.svc.cluster.local
   database: flaskreact
-  user: root
+  user: helmdb
   password: Team1234#
 
 ingress:
@@ -19,3 +19,5 @@ ingress:
     - host: chart-example.local
       paths: []
   tls: []
+
+IAM_ROLE_URN: arn:aws:iam::<YOUR_AWS_ACCOUNT_ID>:role/<YOUR_IAM_ROLE_NAME>
