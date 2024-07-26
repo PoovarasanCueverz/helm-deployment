@@ -1,29 +1,23 @@
-serviceAccount:
-  name: my-service-account
-  annotations:
-    role: arn:aws:iam::<YOUR_AWS_ACCOUNT_ID>:role/<YOUR_IAM_ROLE_NAME>
-
-pod:
-  name: my-pod
-  annotations:
-    role: arn:aws:iam::<YOUR_AWS_ACCOUNT_ID>:role/<YOUR_IAM_ROLE_NAME>
-  container:
-    name: my-container
-    image: my-image:latest
-    port: 80
-
-IAM_ROLE_URN: arn:aws:iam::873906884835:role/MyCdkProjectStack-MyRoleF48FFE04-y1Ex4ZbvElgm
-
-replicaCount: 1
-
 image:
-  repository: manishcueverz/kube-frontend
-  tag: '10'
-
-backendService:
-  host: python-api
-  port: '8000'
+  repository: poovarasan7cueverz/helm-backend
+  tag: "latest"
 
 service:
-  type: ClusterIP
-  port: 3000
+  type: NodePort
+  port: 8000
+
+mysql:
+  host: my-mysql.default.svc.cluster.local
+  database: flaskreact
+  user: helmdb
+  password: Team1234#
+
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
+
+AWS_IAM_ROLE_ARN_PLACEHOLDER: arn:aws:iam::<YOUR_AWS_ACCOUNT_ID>:role/<YOUR_IAM_ROLE_NAME>
